@@ -2,6 +2,6 @@
 
 <%= form_for :search, method: :get do |f| %>
   <%= f.label :query, "Search for" %>
-  <%= f.text_field :query %>
+  <%= f.search_field :query, autofocus: true %>
   <%= f.submit "Go" %>
 <% end %>
