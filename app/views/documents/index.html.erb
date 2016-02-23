@@ -1,0 +1,7 @@
+<h1>What do you want to learn about?</h1>
+
+<%= form_for :search, method: :get do |f| %>
+  <%= f.label :query, "Search for" %>
+  <%= f.text_field :query %>
+  <%= f.submit "Go" %>
+<% end %>
