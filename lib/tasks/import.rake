@@ -5,4 +5,11 @@ namespace :import do
       Document.create! document
     end
   end
+
+  desc 'Import all from Medium - separate task because it requires selenium'
+  task medium: :environment do
+    Importer.new(Parser::Medium.new).import do |document|
+      Document.create document
+    end
+  end
 end
