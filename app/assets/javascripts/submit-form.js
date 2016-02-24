@@ -7,5 +7,4 @@ var formViaTurbolinks = function(event) {
   });
 };
 
-window.onload = formViaTurbolinks;
 document.addEventListener("turbolinks:load", formViaTurbolinks);
