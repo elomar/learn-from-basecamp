@@ -3,6 +3,10 @@ ruby '2.3.0'
 
 gem 'rails', '>= 5.0.0.beta2', '< 5.1'
 gem 'pg'
+
+gem 'elasticsearch-model', '~> 0.1'
+gem 'elasticsearch-rails', '~> 0.1'
+
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets

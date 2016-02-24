@@ -1,7 +1,8 @@
-class Document < ApplicationRecord
-  validates :url, uniqueness: true
+require 'elasticsearch/model'
 
-  def self.search(search_params)
-    where("to_tsvector('english', coalesce(title, ' ') || coalesce(content, ' ') || coalesce(author, ' ')) @@ to_tsquery('english', ?)", search_params[:query])
-  end
+class Document < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  validates :url, uniqueness: true
 end
