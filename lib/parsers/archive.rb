@@ -1,6 +1,4 @@
 require 'mechanize'
-require 'thread'
-require 'thwait'
 
 module Parsers
   class Archive
@@ -8,17 +6,9 @@ module Parsers
     SOURCE = "Signal v. Noise Archives: 15 Years of Signal v. Noise"
 
     def parse(&callback)
-      produce.each do |url|
-        consume(url, callback)
+      urls.each do |url|
+        callback.call(url)
       end
-    end
-
-    def produce
-      urls
-    end
-
-    def consume(url, callback)
-      callback.call(document(url))
     end
 
     private
@@ -30,18 +20,14 @@ module Parsers
     def document(url)
       page = agent.get(url)
 
-      begin
-        return { 
-          title: page.title.sub(' – Signal v. Noise', ''),
-          content: page.search('div.post-content').first.text.strip,
-          author: page.search('.post-author-bio h2').text.sub('About ', ''),
-          source: SOURCE,
-          url: url,
-          published_on: page.search('.post-date').text.to_date
-        }
-      rescue
-        byebug
-      end
+      return { 
+        title: page.title.sub(' – Signal v. Noise', ''),
+        content: page.search('div.post-content').first.text.strip,
+        author: page.search('.post-author-bio h2').text.sub('About ', ''),
+        source: SOURCE,
+        url: url,
+        published_on: page.search('.post-date').text.to_date
+      }
     end
 
     def agent
