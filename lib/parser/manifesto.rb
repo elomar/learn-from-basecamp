@@ -13,7 +13,7 @@ module Parser
       page = agent.get(url)
 
       return { 
-        title: page.search('h1').text,
+        title: page.search('span.head').text.strip,
         content: page.search('span.body').first.text.strip,
         author: nil,
         source: SOURCE,

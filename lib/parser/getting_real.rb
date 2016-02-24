@@ -14,7 +14,7 @@ module Parser
       page = agent.get(url)
 
       return { 
-        title: page.search('h1'),
+        title: page.search('h1').text.strip,
         content: page.search('//div[@class="content"]/h1/following-sibling::*[not(@class="next")]').text.strip,
         author: AUTHOR,
         source: SOURCE,
