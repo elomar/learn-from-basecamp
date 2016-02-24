@@ -7,7 +7,7 @@ module Parsers
 
     def parse(&callback)
       urls.each do |url|
-        callback.call(url)
+        callback.call(document(url))
       end
     end
 
