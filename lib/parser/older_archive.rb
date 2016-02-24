@@ -6,7 +6,7 @@ module Parser
     SOURCE = "Signal v. Noise Older Archives"
 
     def urls
-      agent.get(INDEX).search('//div[@id="ArchiveList"]//a/@href').map(&:value)
+      agent.get(INDEX).search('//div[@id="ArchiveList"]//a/@href').map(&:value).uniq
     end
 
     def document(url)
