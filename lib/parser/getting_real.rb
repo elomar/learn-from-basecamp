@@ -1,18 +1,10 @@
 require 'mechanize'
 
-module Parsers
+module Parser
   class GettingReal
     INDEX = "http://gettingreal.37signals.com/thanks.php"
     SOURCE = "Getting Real"
     AUTHOR = "David"
-
-    def parse(&callback)
-      urls.each do |url|
-        callback.call(document(url))
-      end
-    end
-
-    private
 
     def urls
       agent.get(INDEX).search('//li/a/@href').map(&:value)
@@ -30,6 +22,8 @@ module Parsers
         published_on: nil
       }
     end
+
+    private
 
     def agent
       @agent ||= Mechanize.new

@@ -1,17 +1,9 @@
 require 'mechanize'
 
-module Parsers
+module Parser
   class OlderArchive
     INDEX = "https://signalvnoise.com/older_archives.php"
     SOURCE = "Signal v. Noise Older Archives"
-
-    def parse(&callback)
-      urls.each do |url|
-        callback.call(document(url))
-      end
-    end
-
-    private
 
     def urls
       agent.get(INDEX).search('//div[@id="ArchiveList"]//a/@href').map(&:value)
@@ -29,6 +21,8 @@ module Parsers
         published_on: page.search('.post_header .date').text.to_date
       }
     end
+
+    private
 
     def agent
       @agent ||= Mechanize.new
