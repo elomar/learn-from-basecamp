@@ -26,7 +26,7 @@ module Parsers
         content: page.search('//div[@class="content"]/h1/following-sibling::*[not(@class="next")]').text.strip,
         author: AUTHOR,
         source: SOURCE,
-        url: url,
+        url: page.uri,
         published_on: nil
       }
     end

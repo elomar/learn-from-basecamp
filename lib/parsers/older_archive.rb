@@ -25,7 +25,7 @@ module Parsers
         content: page.search('//div[@class="post"]/div[@class="post_header"]/following-sibling::*').text.strip,
         author: page.search('.post_header .author').text,
         source: SOURCE,
-        url: url,
+        url: page.uri,
         published_on: page.search('.post_header .date').text.to_date
       }
     end

@@ -25,7 +25,7 @@ module Parsers
         content: page.search('div.post-content').first.text.strip,
         author: page.search('.post-author-bio h2').text.sub('About ', ''),
         source: SOURCE,
-        url: url,
+        url: page.uri,
         published_on: page.search('.post-date').text.to_date
       }
     end

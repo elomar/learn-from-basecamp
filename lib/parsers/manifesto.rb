@@ -25,7 +25,7 @@ module Parsers
         content: page.search('span.body').first.text.strip,
         author: nil,
         source: SOURCE,
-        url: url,
+        url: page.uri,
         published_on: nil
       }
     end
