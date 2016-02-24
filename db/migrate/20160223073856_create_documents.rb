@@ -5,7 +5,7 @@ class CreateDocuments < ActiveRecord::Migration[5.0]
       t.text :content
       t.string :author
       t.string :source
-      t.string :url
+      t.string :url, uniq: true
       t.date :published_on
 
       t.timestamps

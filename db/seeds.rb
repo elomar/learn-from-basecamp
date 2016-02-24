@@ -6,6 +6,7 @@ Document.create!([
     author: "Jason Fried",
     published_on: "2016-01-09",
     source: "Signal v. Noise",
+    url: "https://signalvnoise.com/posts/3959-rewrite-why-basecamp-3-is-a-brand-new-code",
     content: <<-CONTENT
 I’m often asked about the benefits we offer at Basecamp. Potential employees are obviously curious, but most of the questions I get are from fellow business owners and entrepreneurs. Everyone’s looking to know what everyone else is doing — as are we — so I figured I might as well post our current benefit list publicly.
 Note: Since the majority of our staff works remotely, and some outside the US, some of these benefits are provided in different ways. For example, the 401k is only available in the US. We’re currently working on making sure everyone, no matter where they work, have commensurate benefits (or at least as similar as possible). We’re still working on this, so hopefully I can write more about how we’ve addressed this down the road.
@@ -16,6 +17,7 @@ Note: Since the majority of our staff works remotely, and some outside the US, s
     author: "DHH",
     published_on: "2015-12-29",
     source: "Signal v. Noise",
+    url: "https://signalvnoise.com/posts/3978-building-basecamp-3-mobile-prototypes",
     content: <<-CONTENT
 “How do you juggle it all?” is a question I’m asked regularly. Usually with an undertone that I must have some secret. A trick. Is it sleeping just 5 hours per night? Is it working 12 hour days for months on end? What is it!?!
 The common lore of Highly Productive People is that they just work harder. Often superhumanly so. They have a singular focus that turns their drive to 11. The media loves to recount these feats of marvelous stamina and determination.
