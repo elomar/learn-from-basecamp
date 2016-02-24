@@ -11,11 +11,11 @@
 
   <% @documents.each do |document| %>
     <div class="document">
-      <h3><%= link_to document.title, document.url %></h3>
+      <h3><%= link_to document.title || document.url, document.url %></h3>
       <p><small><%= byline(document) %></small></p>
 
       <div class="content">
-        <%= document.content %>
+        <%= simple_format document.content %>
       </div>
     </div>
   <% end %>
