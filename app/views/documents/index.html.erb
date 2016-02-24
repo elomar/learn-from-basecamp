@@ -1,18 +1,18 @@
 <h1>What do you want to learn about?</h1>
 
 <%= form_for :search, method: :get do |f| %>
-  <%= f.label :query, "Search for" %>
-  <%= f.search_field :query, autofocus: true %>
+  <%= f.label :query, "Search Basecamp archives for" %>
+  <%= f.search_field :query, value: @query, autofocus: true %>
   <%= f.submit "Go" %>
 <% end %>
 
-<% if @documents.present? %>
-  <h2>Here's what Basecamp wrote about "<%= @query %>":</h2>
+<% if @query.present? %>
+  <h2>Here's what Basecamp wrote about <em><%= @query %></em>:</h2>
 
   <% @documents.each do |document| %>
     <div class="document">
       <h3><%= link_to document.title || document.url, document.url %></h3>
-      <p><small><%= byline(document) %></small></p>
+      <p><small><%= byline(document).html_safe %></small></p>
 
       <div class="content">
         <%= simple_format document.content %>
@@ -20,3 +20,7 @@
     </div>
   <% end %>
 <% end %>
+
+<footer>
+  <p>by <%= link_to "Elomar Souza", "http://elomar.me" %>, all content and design inspiration by <%= link_to "Basecamp", "https://basecamp.com" %></p>
+</footer>

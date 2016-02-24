@@ -15,7 +15,7 @@ module Parser
       return { 
         title: page.title.sub(' - Signal vs. Noise (by 37signals)', ''),
         content: page.search('//div[@class="post"]/div[@class="post_header"]/following-sibling::*').text.strip,
-        author: page.search('.post_header .author').text,
+        author: page.search('.post_header .author').text.presence,
         source: SOURCE,
         url: page.uri,
         published_on: page.search('.post_header .date').text.to_date

@@ -4,7 +4,7 @@ class DocumentsController < ApplicationController
   def index
     if params[:search].present?
       @query = search_params[:query]
-      @documents = Document.search(search_params[:query]).records
+      @documents = Document.search(search_params[:query], size: Document.count).records
     else
       @documents = Document.all
     end
